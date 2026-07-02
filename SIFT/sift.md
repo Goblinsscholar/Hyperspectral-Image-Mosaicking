@@ -152,4 +152,4 @@ SIFT/
 
 - Lowe, D.G. "Distinctive Image Features from Scale-Invariant Keypoints." IJCV 2004.
 - 博客：[高光谱拼接算法（三）SIFT 特征点检测](https://www.cnblogs.com/Goblinscholar/p/20978668)
-- 博客：[高光谱拼接算法（四）SIFT 特征匹配](https://www.cnblogs.com/Goblinscholar)
+- 博客：[高光谱拼接算法（四）SIFT 特征匹配](https://www.cnblogs.com/Goblinscholar/p/21033977)
