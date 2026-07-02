@@ -34,10 +34,12 @@ $$
 经过粗检测的候选点需要三步精炼：
 
 1. **亚像素定位**：用三阶泰勒展开拟合连续空间极值位置
-   $$
-   \hat{\mathbf x} = -\left(\frac{\partial^2 D}{\partial \mathbf x^2}\right)^{-1} \frac{\partial D}{\partial \mathbf x}
-   $$
-2. **低对比度剔除**：$|D(\hat{\mathbf x})| < T_c$（默认 0.03）则丢弃
+
+$$
+\hat{\mathbf x} = -\left(\frac{\partial^2 D}{\partial \mathbf x^2}\right)^{-1} \frac{\partial D}{\partial \mathbf x}
+$$
+
+2. **低对比度剔除**： $|D(\hat{\mathbf x})| < T_c$ （默认 0.03）则丢弃
 3. **边缘响应剔除**：Hessian 矩阵主曲率比 $\frac{\text{Tr}(H)^2}{\det(H)} < \frac{(r+1)^2}{r}$（默认 r=10）
 
 ### 描述子
@@ -140,6 +142,7 @@ SIFT/
 ├── visualize.py            # 可视化输出
 ├── data1.jpg               # 输入测试图 1
 ├── data2.jpg               # 输入测试图 2
+├── data3.jpg               # 输入测试图 3
 ├── pipeline.png            # 算法管道图
 ├── requirements.txt        # 依赖声明
 └── sift.md                 # 本说明文档
@@ -148,5 +151,5 @@ SIFT/
 ## 参考
 
 - Lowe, D.G. "Distinctive Image Features from Scale-Invariant Keypoints." IJCV 2004.
-- 博客：[高光谱拼接算法（三）SIFT 特征点检测](https://www.cnblogs.com/Goblinscholar)
+- 博客：[高光谱拼接算法（三）SIFT 特征点检测](https://www.cnblogs.com/Goblinscholar/p/20978668)
 - 博客：[高光谱拼接算法（四）SIFT 特征匹配](https://www.cnblogs.com/Goblinscholar)
