@@ -174,4 +174,4 @@ RANSAC/
 - Fischler, M.A. and Bolles, R.C. "Random Sample Consensus: A Paradigm for Model Fitting with Applications to Image Analysis and Automated Cartography." Communications of the ACM, 1981.
 - Lowe, D.G. "Distinctive Image Features from Scale-Invariant Keypoints." IJCV 2004.
 - Hartley, R. and Zisserman, A. "Multiple View Geometry in Computer Vision." Cambridge University Press, 2004.
-- 博客：[高光谱拼接算法（六）RANSAC 误匹配剔除](https://www.cnblogs.com/Goblinscholar)
+- 博客：[高光谱拼接算法（六）RANSAC 误匹配剔除](https://www.cnblogs.com/Goblinscholar/p/21113687)
