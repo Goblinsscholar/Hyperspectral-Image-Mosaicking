@@ -1,3 +1,7 @@
+本篇代码仓位: [USAC]( https://github.com/Goblinsscholar/Hyperspectral-Image-Mosaicking/blob/main/USAC/usac.md)
+
+---
+
 上一篇我们介绍了标准 RANSAC。而在之后的四十多年里，围绕这一经典算法，又陆续出现了大量改进方法。
 
 不同于 SIFT 在局部特征领域衍生出众多并行发展的分支，RANSAC 的演进路线更加清晰：研究者们针对算法内部的不同环节不断提出改进，最终由 **USAC（Universal RANSAC）** 将这些成熟的方法整合到同一个统一框架中。
