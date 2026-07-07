@@ -190,4 +190,4 @@ USAC/
 - Chum, O., & Matas, J. "Randomized RANSAC with Sequential Probability Ratio Test." ICCV 2005.
 - Barath, D., et al. "MAGSAC: Marginalizing Sample Consensus." CVPR 2019.
 - Chum, O., et al. "Locally Optimized RANSAC." DAGM 2003.
-- 博客：[高光谱拼接算法（七）USAC](https://www.cnblogs.com/Goblinscholar/p/21065457)
+- 博客：[高光谱拼接算法（七）USAC](https://www.cnblogs.com/Goblinscholar/p/21182037)
