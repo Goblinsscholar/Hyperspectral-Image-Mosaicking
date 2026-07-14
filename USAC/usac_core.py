@@ -267,22 +267,19 @@ class MAGSACScorer:
     范围内变化，覆盖从严格到宽松的阈值区间。
     """
 
-    def __init__(self, base_threshold=3.0, k=2.5):
+    def __init__(self, base_threshold=3.0, k=2.5, scale_factors=None):
         """
         参数:
             base_threshold: 用户设定的参考阈值（像素），对应中间尺度。
             k: 阈值系数 τ = kσ，默认 2.5。
+            scale_factors: 多尺度因子列表，例如 [0.5, 1.0, 1.5, 2.0]。
+                           若为 None 则使用默认 [0.5, 1.0, 1.5, 2.0]。
         """
         self.k = k
-        # 从用户阈值反推基础 σ
         base_sigma = base_threshold / k
-        # 多尺度范围：以 base_sigma 为中心，覆盖 0.5×~2×
-        self.sigmas = np.array([
-            base_sigma * 0.5,
-            base_sigma * 1.0,
-            base_sigma * 1.5,
-            base_sigma * 2.0,
-        ])
+        if scale_factors is None:
+            scale_factors = [0.5, 1.0, 1.5, 2.0]
+        self.sigmas = np.array([base_sigma * sf for sf in scale_factors])
         # 对应的实际阈值列表
         self.thresholds = self.k * self.sigmas
         # 均匀权重
@@ -438,7 +435,7 @@ def compute_required_iterations(inlier_ratio, confidence=0.99, sample_size=4):
 def usac(points1, points2, qualities=None,
          threshold=3.0, max_iter=5000, confidence=0.99,
          use_prosac=True, use_sprt=True, use_magsac=True,
-         use_lo=True, use_adaptive=True):
+         use_lo=True, use_adaptive=True, magsac_scale_factors=None):
     """USAC 通用采样一致性算法。
 
     集成 PROSAC + SPRT + MAGSAC + LO-RANSAC + 自适应终止。
@@ -456,6 +453,8 @@ def usac(points1, points2, qualities=None,
         use_magsac: 是否使用 MAGSAC 评分（默认 True）。
         use_lo: 是否使用 LO-RANSAC 局部优化（默认 True）。
         use_adaptive: 是否使用自适应终止（默认 True）。
+        magsac_scale_factors: MAGSAC 多尺度因子列表，默认
+                              [0.5, 1.0, 1.5, 2.0]。
 
     返回:
         dict: 包含以下键：
@@ -508,7 +507,8 @@ def usac(points1, points2, qualities=None,
 
     # 验证器 & 评分器
     sprt = SPRTVerifier() if use_sprt else None
-    magsac = MAGSACScorer(base_threshold=threshold) if use_magsac else None
+    magsac = MAGSACScorer(base_threshold=threshold,
+                          scale_factors=magsac_scale_factors) if use_magsac else None
 
     # 若 MAGSAC 启用，SPRT 使用最宽松的阈值（避免错误拒绝）
     sprt_threshold = magsac.thresholds[-1] if (use_magsac and magsac is not None) else threshold
