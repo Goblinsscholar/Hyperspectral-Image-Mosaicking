@@ -201,6 +201,6 @@ Stitch_v1/
 
 ## 参考
 
-- 博客：[高光谱拼接算法（八）从特征匹配到图像拼接](https://www.cnblogs.com/Goblinscholar/p/21068269)
+- 博客：[高光谱拼接算法（八）从特征匹配到图像拼接](https://www.cnblogs.com/Goblinscholar/p/21470008)
 - Lowe, D.G. "Distinctive Image Features from Scale-Invariant Keypoints." IJCV 2004.
 - Raguram, R., et al. "USAC: A Universal Framework for Random Sample Consensus." TPAMI 2013.
